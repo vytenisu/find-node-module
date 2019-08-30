@@ -1,0 +1,66 @@
+{
+  "name": "find-node-module",
+  "version": "1.0.0",
+  "description": "Provides absolute path to required node module",
+  "main": "dist/index.js",
+  "bin": {
+    "find-node-module": "cli.js"
+  },
+  "scripts": {
+    "prepublishOnly": "npm run lint && npm run build && npm run test && npm run docs",
+    "test": "./node_modules/.bin/jest --forceExit --detectOpenHandles",
+    "testSync": "./node_modules/.bin/jest --runInBand --forceExit --detectOpenHandles",
+    "lint": "./node_modules/.bin/tslint -c ./tslint.json -p ./tsconfig.json -t stylish ./lib/**/*.ts",
+    "build": "./node_modules/.bin/webpack",
+    "buildDev": "./node_modules/.bin/webpack --config webpack.config.dev.js",
+    "docs": "./node_modules/.bin/typedoc --module commonjs --target ES6 --exclude **/*.test.* --ignoreCompilerErrors --out ./docs --readme ./README.md --mode file ./index.ts ./lib",
+    "exec": "node ./cli.js"
+  },
+  "homepage": "https://github.com/vytenisu/find-node-module",
+  "bugs": {
+    "url": "https://github.com/vytenisu/find-node-module/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:vytenisu/find-node-module.git"
+  },
+  "keywords": [
+    "NPM",
+    "find",
+    "node",
+    "module",
+    "modules",
+    "node_modules",
+    "path",
+    "absolute",
+    "find-node-modules",
+    "vytenis",
+    "urbonavicius",
+    "vytenisu",
+    "WhiteTurbine",
+    "Whitend"
+  ],
+  "author": {
+    "name": "Vytenis Urbonavičius",
+    "url": "https://github.com/vytenisu"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "jest": "^24.9.0",
+    "license-webpack-plugin": "^2.1.2",
+    "npm-dts-webpack-plugin": "^1.1.10",
+    "ts-jest": "^24.0.2",
+    "ts-loader": "^6.0.4",
+    "ts-node": "^8.3.0",
+    "tslint": "^5.19.0",
+    "typedoc": "^0.15.0",
+    "typescript": "^3.6.2",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "dependencies": {
+    "find-node-modules": "^2.0.0"
+  }
+}
